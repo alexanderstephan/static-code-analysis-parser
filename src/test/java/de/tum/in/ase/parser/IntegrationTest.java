@@ -23,6 +23,10 @@ public class IntegrationTest {
 
     private static final String EXPECTED_SWIFTLINT = "{\"tool\":\"SWIFTLINT\",\"issues\":[{\"filePath\":\"/opt/bambooagent/bamboo-agent-home/xml-data/build-dir/MDTESTSWIFT-ARTEMISTESTUSER1-JOB1/assignment/Sources/swiftLib/Client.swift\",\"startLine\":59,\"endLine\":59,\"startColumn\":0,\"endColumn\":0,\"rule\":\"line_length\",\"category\":\"swiftLint\",\"message\":\"Line should be 120 characters or less: currently 184 characters\",\"priority\":\"error\"},{\"filePath\":\"/opt/bambooagent/bamboo-agent-home/xml-data/build-dir/MDTESTSWIFT-ARTEMISTESTUSER1-JOB1/assignment/Sources/swiftLib/Client.swift\",\"startLine\":58,\"endLine\":58,\"startColumn\":22,\"endColumn\":22,\"rule\":\"trailing_semicolon\",\"category\":\"swiftLint\",\"message\":\"Lines should not have trailing semicolons.\",\"priority\":\"warning\"},{\"filePath\":\"/opt/bambooagent/bamboo-agent-home/xml-data/build-dir/MDTESTSWIFT-ARTEMISTESTUSER1-JOB1/assignment/Sources/swiftLib/Client.swift\",\"startLine\":60,\"endLine\":60,\"startColumn\":35,\"endColumn\":35,\"rule\":\"trailing_semicolon\",\"category\":\"swiftLint\",\"message\":\"Lines should not have trailing semicolons.\",\"priority\":\"warning\"}]}";
 
+    // TODO: Insert the actual expected output from Artemis
+    private static final String EXPECTED_GCC = "";
+
+    private static final String EXPECTED_CPPCHECK = "";
 
     private void testParser(String fileName, String expected) throws ParserException {
         File file = new File(fileName);
@@ -54,6 +58,16 @@ public class IntegrationTest {
     @Test
     public void testSwiftlintParser() throws ParserException {
         testParser("src/test/java/swiftlint-result.xml", EXPECTED_SWIFTLINT);
+    }
+
+    @Test
+    public void testCppCheckParser() throws ParserException {
+        testParser("src/test/java/gcc.json", EXPECTED_GCC);
+    }
+
+    @Test
+    public void testGCCParser() throws ParserException {
+        testParser("src/test/java/gcc.json", EXPECTED_GCC);
     }
 
     @Test
